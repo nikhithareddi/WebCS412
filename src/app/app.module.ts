@@ -5,17 +5,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { FooterComponent } from './navigation/footer/footer.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { CreatePostComponent } from './posts/create-post/create-post.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
-import { CreatePostComponent } from './posts/create-post/create-post.component';
-import { PostListComponent } from './posts/post-list/post-list.component';
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {MatExpansionModule} from "@angular/material/expansion";
 import {MatCardModule} from "@angular/material/card";
-import {FormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { PostListComponent } from './posts/post-list/post-list.component';
+import {CommonModule} from "@angular/common";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import {AuthInterceptor} from "./auth/auth-interceptor";
+//import { CatFactComponent } from './catfact/catfact.component';
+//import { CatFactService } from './catfact/catfact.service';
+//import { JokeComponent } from './joke/joke.component';
+
 
 @NgModule({
   declarations: [
@@ -23,22 +33,27 @@ import {HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     FooterComponent,
     CreatePostComponent,
-    PostListComponent
+    PostListComponent,
+   //CatFactComponent,
+    //LoginComponent,
+    //SignupComponent,
+    //JokeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
+    HttpClientModule,
+    /*angular material imports*/
     MatToolbarModule,
     MatButtonModule,
-    MatProgressSpinnerModule,
-    MatExpansionModule,
     MatCardModule,
-    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
     FormsModule,
-    MatInputModule
+    BrowserAnimationsModule,
+    MatExpansionModule, CommonModule, MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
