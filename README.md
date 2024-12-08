@@ -1,7 +1,7 @@
-# Nicky App
+# MII APP
 
 ## Overview
-The **Nicky App** is a single-page application (SPA) designed for seamless and dynamic user interactions. Built using Angular for the frontend and Node.js/Express for the backend, it leverages RESTful APIs to provide real-time data updates without requiring full-page reloads. The app ensures secure and efficient data management while delivering a modern and responsive user experience.
+The **MII APP** is a single-page application (SPA) designed for seamless and dynamic user interactions. Built using Angular for the frontend and Node.js/Express for the backend, it leverages RESTful APIs to provide real-time data updates without requiring full-page reloads. The app ensures secure and efficient data management while delivering a modern and responsive user experience.
 
 ## Tech Stack
 - **Frontend**: Angular, Angular Material, RxJS
